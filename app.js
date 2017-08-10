@@ -10,6 +10,9 @@ const bodyParser = require('body-parser'),
 
 const app = express();
 
+//routes
+const index = require('./modules/routes/index');
+
 //uses
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,6 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //use routes
+app.use('/', index);
 
 // mongo set up
 const MongoURI = process.env.MONGODB_URI
