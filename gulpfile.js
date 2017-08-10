@@ -6,7 +6,6 @@ const gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
   babel = require('gulp-babel'),
-  babelCore = require('')
   sass = require('gulp-sass'),
   autoprefixer = require('gulp-autoprefixer'),
   cleanCSS = require('gulp-clean-css'),
@@ -30,7 +29,7 @@ gulp.task('scripts', () => {
 
 gulp.task('styles', () => {
   console.log('styles ran');
-  gulp.src('public/styles/sass/main.sass')
+  gulp.src('public/styles/main.sass')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
@@ -56,7 +55,7 @@ gulp.task('angular-map', () => {
 
 //watch
 gulp.task('watch:styles', () => {
-  gulp.watch('public/styles/sass/*.sass', ['styles']);
+  gulp.watch('public/styles/*.sass', ['styles']);
 });
 
 gulp.task('watch:scripts', () => {
