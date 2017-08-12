@@ -5,8 +5,10 @@
 =bodyStyles($backPos, $backSize, $imgHeight)
   body
     margin: 0
+  .body
     min-height: 100vw / $imgHeight * 825
     width: 100%
+    transition: transform 300ms
     background:
       image: url('/assets/empire.jpg')
       position: $backPos
@@ -21,13 +23,13 @@
 
 //ipad styles
 @media (min-width: $minIpad) and (max-width: $maxIpad)
-  +bodyStyles(top, auto, 250)
+  +bodyStyles(top, auto, 200)
   @import navIpad
   @import homepageIpad
 
 //iPhone styles
 @media (max-width: $maxPhone)
-  +bodyStyles(top, auto, 250)
+  +bodyStyles(top, cover, 250)
   @import navPhone
   @import homepagePhone
 

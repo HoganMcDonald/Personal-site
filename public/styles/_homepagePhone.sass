@@ -7,11 +7,11 @@
   justify-content: center
 
 .wrapper
-  height: 100vh
+  min-height: 100vh
   width: 100vw
   display: grid
   grid-template-columns: auto $profileSizeMobile auto
-  grid-template-rows: 10vh $profileSizeMobile $profileSizeMobile auto
+  grid-template-rows: 14vh $profileSizeMobile auto $profileSizeMobile 10vh
 
 .profileImage
   grid-column-start: 2
@@ -31,14 +31,14 @@
 .profileText
   grid-column-start: 2
   grid-column-end: 2
-  grid-row-start: 3
-  grid-row-end: 3
+  grid-row-start: 4
+  grid-row-end: 4
   display: flex
   align-items: center
   h1
     text-align: center
     margin-left: 2vw
-    +headerFont(2em)
+    +headerFont(1.6em)
 
 .scroll
   opacity: 0

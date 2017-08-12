@@ -1,3 +1,7 @@
+// document.addEventListener("touchmove", function(event){
+//     event.preventDefault();
+// });
+
 $(document).ready( () => {
 
   let faded = false;
@@ -5,8 +9,11 @@ $(document).ready( () => {
 
   let fadeInScroll = setTimeout( () => {
     faded = true;
-    $('.scroll').addClass('show');
-    $('nav').addClass('show');
+    console.log(window.orientation);
+    if (!window.orientation === undefined) {
+      $('.scroll').addClass('show');
+      $('nav').addClass('show');
+    }
   }, 1500)
 
   $(window).on('scroll', () => {
@@ -22,7 +29,6 @@ $(document).ready( () => {
     } else if (bScroll <= $('nav').height()) {
       $('nav').removeClass('navVis');
     }
-
 
     /*
     scroll hint
@@ -42,11 +48,16 @@ $(document).ready( () => {
         } // end check if current scroll is not less than memory
       } // end check if faded
     } // end check if current scroll is 1/8th window
-
-
-
-
-
   }); // end on scroll
+
+  /*
+  side nav
+  */
+  $('#menuIcon').on('click', () => {
+    $('.body').toggleClass('menuOpen');
+    $('nav').toggleClass('sideNaveOpen');
+  });
+
+
 
 }); // end document ready
