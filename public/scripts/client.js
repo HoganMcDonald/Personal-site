@@ -1,7 +1,3 @@
-// document.addEventListener("touchmove", function(event){
-//     event.preventDefault();
-// });
-
 $(document).ready( () => {
 
   let faded = false;
