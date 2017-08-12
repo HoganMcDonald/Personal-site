@@ -6,19 +6,33 @@ $(document).ready( () => {
   let fadeInScroll = setTimeout( () => {
     faded = true;
     $('.scroll').addClass('show');
-  }, 3000)
+    $('nav').addClass('show');
+  }, 1500)
 
   $(window).on('scroll', () => {
+    // cancel timeout
+    clearTimeout(fadeInScroll);
     const bScroll = $('body').scrollTop();
+    /*
+    nav bar
+    */
+    $('nav').addClass('show');
+    if (bScroll > $('nav').height() + 10) {
+      $('nav').addClass('navVis');
+    } else if (bScroll <= $('nav').height()) {
+      $('nav').removeClass('navVis');
+    }
+
+
+    /*
+    scroll hint
+    */
     // if current scroll is greater than memory, reset memory
     if (bScroll > scrollMemory) {
       scrollMemory = bScroll;
     }
-
     // if current scroll passes threshold of 1/8 the window height
     if (bScroll > $(window).height() / 8) {
-      // cancel timeout
-      clearTimeout(fadeInScroll);
       // if '.scroll' has faded in
       if (faded) {
         $('.scroll').css( 'transition-duration', '0ms' );
@@ -33,6 +47,6 @@ $(document).ready( () => {
 
 
 
-  });
+  }); // end on scroll
 
-});
+}); // end document ready
