@@ -2,14 +2,27 @@
 $profileSizeDesktop: 400px
 $profileBorderColor: #9e9e9e
 
+//heading text
+$headingColor: #000000
+$headingColor2: #9e9e9e
+
 
 //font
 =headerFont($size)
-  font
+  font:
     family: "source-sans-pro"
     size: $size
+    style: italic
+    weight: 700
+  letter-spacing: 0.3em
+  color: $headingColor
+  text-transform: uppercase
 
-=bodyFont($size)
-  font
+=headerFont2($size)
+  font:
     family: "source-sans-pro"
     size: $size
+    style: italic
+    weight: 400
+  color: $headingColor2
+  text-transform: uppercase

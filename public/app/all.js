@@ -1,1 +1,1 @@
-"use strict";console.log("js");
+"use strict";console.log("js");var app=angular.module("myApp",[]);$(document).ready(function(){var o=!1,s=0,l=setTimeout(function(){o=!0,$(".scroll").addClass("show")},3e3);$(window).on("scroll",function(){var n=$("body").scrollTop();n>s&&(s=n),n>$(window).height()/8&&(clearTimeout(l),o&&($(".scroll").css("transition-duration","0ms"),n===s&&$(".scroll").css("opacity",1-n/$(window).height())))})});

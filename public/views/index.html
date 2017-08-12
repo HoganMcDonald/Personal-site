@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hogan McDonald</title>
-    <!-- Vendors -->
-    <script src="vendors/jquery.min.js" charset="utf-8"></script>
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <!-- Scripts -->
-    <script src="app/all.js" charset="utf-8"></script>
-    <!-- Styles -->
-    <link rel="stylesheet" href="/app/main.min.css">
-    <!-- Typekit -->
-    <script src="https://use.typekit.net/hal4idp.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-  </head>
-  <body>
-    <div class="fullScreen">
-      <div class="wrapper">
-        <div class="profileImage"></div>
-        <div class="profileText">
-          <h1>This is supposed to be a one sentence description of who I am.</h1>
-        </div>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hogan McDonald</title>
+  <!-- Vendors -->
+  <script src="vendors/jquery.min.js" charset="utf-8"></script>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <!-- Scripts -->
+  <script src="app/all.js" charset="utf-8"></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="/app/main.min.css">
+  <!-- Typekit -->
+  <script src="https://use.typekit.net/hal4idp.js"></script>
+  <script>
+    try {
+      Typekit.load({
+        async: true
+      });
+    } catch (e) {}
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="profileImage"></div>
+    <div class="profileText">
+      <h1>This is supposed to be a one sentence description of who I am.</h1>
     </div>
-  </body>
+    <div class="scroll">
+      <h3>Scroll</h3>
+      <img src="/assets/arrow.svg" alt="Scroll to see more">
+    </div>
+  </div>
+
+</body>
+
 </html>
