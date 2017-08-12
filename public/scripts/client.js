@@ -5,8 +5,7 @@ $(document).ready( () => {
 
   let fadeInScroll = setTimeout( () => {
     faded = true;
-    console.log(window.orientation);
-    if (!window.orientation === undefined) {
+    if (window.orientation === undefined) {
       $('.scroll').addClass('show');
       $('nav').addClass('show');
     }
