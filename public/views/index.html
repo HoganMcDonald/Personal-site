@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
@@ -29,14 +29,13 @@
       <li>Home</li>
       <li>Projects</li>
       <li>Now Reading</li>
-      <li>Resume</li>
+      <a href="/resume"><li>Resume</li></a>
       <li>Links</li>
     </ul>
   </nav>
 
   <div class="body">
     <img src="/assets/menuIcon.svg" alt="Open Menu" id="menuIcon">
-
     <div class="wrapper">
       <div class="profileImage"></div>
       <div class="profileText">
@@ -49,7 +48,14 @@
     </div>
   </div>
 
+  <div class="repos" ng-controller="reposController" ng-init="populateRepos()">
 
+  </div>
+
+
+  <footer>
+
+  </footer>
 
 </body>
 

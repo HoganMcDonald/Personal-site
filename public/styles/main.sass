@@ -1,12 +1,16 @@
 //global vars
 @import vars
 
+body, html
+  margin: 0
+  max-width: 100%
+  overflow-x: hidden
+
+a
+  text-decoration: none
+
 //non-partial styles
 =bodyStyles($backPos, $backSize, $imgHeight)
-  body html
-    margin: 0
-    max-width: 100%
-    overflow: hidden
   .body
     min-height: 100vw / $imgHeight * 825
     width: 100%
@@ -35,7 +39,7 @@
   @import navPhone
   @import homepagePhone
 
-//mobile styles
+@import footer
 
 .show
   opacity: 1

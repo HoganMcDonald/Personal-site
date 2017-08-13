@@ -11,12 +11,14 @@ const bodyParser = require('body-parser'),
 const app = express();
 
 //routes
-const index = require('./modules/routes/index');
+const index = require('./modules/routes/index'),
+  github = require('./modules/routes/github'),
+  resume = require('./modules/routes/resume');
 
 //uses
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use(bodyParser.json())
+  .use(bodyParser.urlencoded({extended: true}))
+  .use(express.static('public'));
 
 // create session and tell app to use it
 app.use(session({
@@ -32,7 +34,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //use routes
-app.use('/', index);
+app.use('/', index)
+  .use('/github', github)
+  .use('/resume', resume);
 
 // mongo set up
 const MongoURI = process.env.MONGODB_URI

@@ -17,13 +17,13 @@ const gulp = require('gulp'),
 gulp.task('scripts', () => {
   console.log('scripts ran');
   gulp.src(['public/scripts/classes/*.js',
-    'public/scripts/app.js', 'public/scripts/controllers/*.js',
-    'public/scripts/services/*.js', 'public/scripts/client.js'])
-    .pipe(babel({
-      presets: ['es2015']
-    }))
+    'public/scripts/app.js', 'public/scripts/services/*.js',
+    'public/scripts/controllers/*.js', 'public/scripts/client.js'])
+    // .pipe(babel({
+    //   presets: ['es2015']
+    // }))
+    // .pipe(uglify())
     .pipe(concat('all.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('public/app'));
 });
 
