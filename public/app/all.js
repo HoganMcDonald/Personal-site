@@ -4,8 +4,14 @@ let app = angular.module('myApp', []);
 app.service('gitHubService', function($http) {
   let vm = this;
 
-  vm.getRepos = function() {
-    return $http.get('/github').then(response => {
+  vm.getRepos = function(repos) {
+    return $http({
+      url: '/github',
+      method: 'GET',
+      headers: {
+        'requested_repos': repos
+      }
+    }).then(response => {
       return response.data;
     });
   }
@@ -16,10 +22,11 @@ app.service('gitHubService', function($http) {
 
 app.controller('reposController', function($scope, gitHubService) {
   var vm = this;
-  console.log('reposController');
+
+  vm.repos =['Personal-site', 'capture-app', 'watson-machine-learning', 'pathFinding']
 
   $scope.populateRepos = function() {
-    gitHubService.getRepos().then(response => {
+    gitHubService.getRepos(vm.repos).then(response => {
       $scope.repos = response;
       console.log('repos', response);
     });

@@ -1,9 +1,10 @@
 app.controller('reposController', function($scope, gitHubService) {
   var vm = this;
-  console.log('reposController');
+
+  vm.repos =['Personal-site', 'capture-app', 'watson-machine-learning', 'pathFinding']
 
   $scope.populateRepos = function() {
-    gitHubService.getRepos().then(response => {
+    gitHubService.getRepos(vm.repos).then(response => {
       $scope.repos = response;
       console.log('repos', response);
     });
