@@ -50,6 +50,7 @@ $(document).ready( () => {
   */
   $('#menuIcon').on('click', () => {
     $('.body').toggleClass('menuOpen');
+    $('body').toggleClass('bodyFix');
     $('nav').toggleClass('sideNaveOpen');
   });
 

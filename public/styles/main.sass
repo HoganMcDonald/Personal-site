@@ -3,9 +3,10 @@
 
 //non-partial styles
 =bodyStyles($backPos, $backSize, $imgHeight)
-  body
+  body html
     margin: 0
-    width: 100vw
+    max-width: 100%
+    overflow: hidden
   .body
     min-height: 100vw / $imgHeight * 825
     width: 100%
