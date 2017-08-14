@@ -63,10 +63,18 @@ $(document).ready( () => {
   nav scrolls
   */
   function scrollToAnchor(id, num){
+    $('body').removeClass('bodyFix');
+    $('.body').removeClass('menuOpen');
     $('li').removeClass('selected');
+    $('nav').removeClass('sideNaveOpen');
     $('#' + num).addClass('selected');
     var dest = $("#" + id);
-    $('html, body').animate( {scrollTop: dest.offset().top - 90}, 'slow' );
+    if (window.orientation === undefined) {
+      $('html, body').animate( {scrollTop: dest.offset().top - 90}, 'slow' );
+    } else {
+      $('html, body').animate( {scrollTop: dest.offset().top - 30}, 'slow' );
+    }
+
   }
 
   $('li').on('click', function() {
@@ -99,6 +107,7 @@ $(document).ready( () => {
   $('#menuIcon').on('click', () => {
     $('.body').toggleClass('menuOpen');
     $('body').toggleClass('bodyFix');
+    $('#menuIcon').toggleClass('sideNaveOpen');
     $('nav').toggleClass('sideNaveOpen');
   });
 
