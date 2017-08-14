@@ -1,0 +1,33 @@
+.repos
+  display: grid
+  grid-template-columns: 70vw
+  grid-row-gap: 5vw
+  margin:
+    top: 5vh
+    left: 15vw
+    right: 15vw
+
+.repo
+  position: relative
+  border:
+    width: 1px
+    style: solid
+    color: $repoBorderColor
+  +siteGradient()
+  height: 40vh
+  h2
+    +headerFont(1.4em)
+    margin:
+      left: 5%
+      top: 5%
+      bottom: 5%
+  p
+    +bodyFont(1.1em)
+    margin:
+      top: 5vh
+      left: 7%
+  a
+    position: absolute
+    bottom: 5%
+    right: 5%
+    +headerFont(1.4em)

@@ -8,6 +8,8 @@
   <!-- Vendors -->
   <script src="vendors/jquery.min.js" charset="utf-8"></script>
   <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="vendors/three.min.js" charset="utf-8"></script>
+  <script src="vendors/OBJLoader.js" charset="utf-8"></script>
   <!-- Scripts -->
   <script src="app/all.js" charset="utf-8"></script>
   <!-- Styles -->
@@ -26,15 +28,15 @@
 <body>
   <nav>
     <ul>
-      <li>Home</li>
-      <li>Projects</li>
-      <li>Now Reading</li>
+      <li id="1">Home</li>
+      <li id="2">Projects</li>
+      <li id="3">Now Reading</li>
       <a href="/resume"><li>Resume</li></a>
-      <li>Links</li>
+      <li id="4">Links</li>
     </ul>
   </nav>
 
-  <div class="body">
+  <div class="body" id="home">
     <img src="/assets/menuIcon.svg" alt="Open Menu" id="menuIcon">
     <div class="wrapper">
       <div class="profileImage"></div>
@@ -46,15 +48,31 @@
         <img src="/assets/arrow.svg" alt="Scroll to see more">
       </div>
     </div>
+
+    <h1 class="siteHeader" id="projects">Projects</h1>
+    <div class="repos" ng-controller="reposController" ng-init="populateRepos()">
+
+      <div class="repo" ng-repeat="repo in repos">
+        <h2>{{repo.name}}</h2>
+        <p>{{repo.description}}</p>
+        <a href="{{repo.html_url}}">>></a>
+      </div>
+    </div>
+
+  </div>
+  <div class="body1">
+
+  </div>
+  <div class="body2">
+    <h1 class="siteHeader" id="reading">Now Reading</h1>
+    <img src="" alt="">
   </div>
 
-  <div class="repos" ng-controller="reposController" ng-init="populateRepos()">
 
-  </div>
-
-
-  <footer>
-
+  <footer id="links">
+    <a href="https://www.linkedin.com/in/hogan-mcdonald/"><img src="/assets/linkedin.svg" alt="linkedin"></a>
+    <a href="https://github.com/HoganMcDonald"><img src="/assets/github.svg" alt="github"></a>
+    <a href="mailto:hpeter.mcdonald@icloud.com"><img src="/assets/email.svg" alt=""></a>
   </footer>
 
 </body>

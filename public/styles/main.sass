@@ -9,23 +9,43 @@ body, html
 a
   text-decoration: none
 
+.siteHeader
+  text-align: center
+  +headerFont(2em)
+  margin:
+    top: 0
+    bottom: 5vh
+
 //non-partial styles
 =bodyStyles($backPos, $backSize, $imgHeight)
   .body
-    min-height: 100vw / $imgHeight * 825
+    min-height: 100vw / $imgHeight * 800
     width: 100%
     transition: transform 300ms
     background:
       image: url('/assets/empire.jpg')
       position: $backPos
       size: $backSize
-
+  .body1
+    width: 100vw
+    height: 80px
+    background-image: linear-gradient(180deg, #ffffff, #fdfdfd)
+    transition: transform 300ms
+  .body2
+    min-height: 100vh
+    width: 100%
+    transition: transform 300ms
+    background:
+      image: url('/assets/trees.jpg')
+      position: $backPos
+      size: $backSize
 //pages
 //desktop styles
 @media  (min-width: $minDesktop)
   +bodyStyles(center, cover, 589)
   @import nav
   @import homepage
+  @import repos
 
 //ipad styles
 @media (min-width: $minIpad) and (max-width: $maxIpad)
@@ -38,8 +58,13 @@ a
   +bodyStyles(top, cover, 250)
   @import navPhone
   @import homepagePhone
+  @import reposPhone
 
 @import footer
 
 .show
   opacity: 1
+
+.selected
+  text-decoration: underline
+  color: $navLinkActive

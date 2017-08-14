@@ -23,10 +23,11 @@ app.service('gitHubService', function($http) {
 app.controller('reposController', function($scope, gitHubService) {
   var vm = this;
 
-  vm.repos =['Personal-site', 'capture-app', 'watson-machine-learning', 'pathFinding']
+  $scope.reposToGet =['Personal-site', 'capture-app', 'watson-machine-learning', 'pathFinding', 'polyglotapi', 'hoganmcdonald.github.io']
 
   $scope.populateRepos = function() {
-    gitHubService.getRepos(vm.repos).then(response => {
+    gitHubService.getRepos($scope.reposToGet).then(response => {
+      console.log(vm.reposToGet);
       $scope.repos = response;
       console.log('repos', response);
     });
@@ -51,9 +52,11 @@ $(document).ready( () => {
   }, 1500)
 
   $(window).on('scroll', () => {
+
     // cancel timeout
     clearTimeout(fadeInScroll);
     const bScroll = $('body').scrollTop();
+
     /*
     nav bar
     */
@@ -82,7 +85,53 @@ $(document).ready( () => {
         } // end check if current scroll is not less than memory
       } // end check if faded
     } // end check if current scroll is 1/8th window
+
+    /*
+    animate repos
+    */
+    // if on mobile
+    //  if repo is within center 80% of screen
+    //  expand slightly and make margin shrink accordingly
+    // else make them apear as the user scrolls near them
+    // also hide all repos on page load if user is on desktop
+
+
+
   }); // end on scroll
+
+  /*
+  nav scrolls
+  */
+  function scrollToAnchor(id, num){
+    $('li').removeClass('selected');
+    $('#' + num).addClass('selected');
+    var dest = $("#" + id);
+    $('html, body').animate( {scrollTop: dest.offset().top - 90}, 'slow' );
+  }
+
+  $('li').on('click', function() {
+    switch ($(this).attr('id')) {
+      case '1':
+        console.log(1);
+        scrollToAnchor('home', 1);
+        break;
+      case '2':
+        console.log(2);
+        scrollToAnchor('projects', 2);
+        break;
+      case '3':
+        console.log(3);
+        scrollToAnchor('reading', 3);
+        break;
+      case '4':
+        console.log(4);
+        scrollToAnchor('links', 4);
+        break;
+      default:
+        console.log('other');
+        scrollToAnchor('home', 1);
+    }
+  });
 
   /*
   side nav
@@ -92,7 +141,5 @@ $(document).ready( () => {
     $('body').toggleClass('bodyFix');
     $('nav').toggleClass('sideNaveOpen');
   });
-
-
 
 }); // end document ready

@@ -34,7 +34,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "request": "^2.81.0",
-    "request-promise-native": "^1.0.4"
+    "request-promise-native": "^1.0.4",
+    "three": "^0.86.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
