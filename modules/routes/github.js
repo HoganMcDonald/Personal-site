@@ -6,7 +6,6 @@ const router = require('express').Router(),
 // sends requested repos
 router.get('/', (req, res) => {
   const reqRepos = req.headers.requested_repos.split(',');
-  console.log(reqRepos);
   let reposToSend = [];
   // http options
   const options = {
@@ -20,7 +19,6 @@ router.get('/', (req, res) => {
     let repos = JSON.parse(response);
     for (var i = 0; i < repos.length; i++) {
       if (reqRepos.includes(repos[i].name)) {
-        console.log('hit');
         reposToSend.push(repos[i])
       }
       if (i === repos.length -1) {
