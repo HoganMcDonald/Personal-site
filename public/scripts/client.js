@@ -5,7 +5,7 @@ $(document).ready( () => {
   let fadeInScroll = setTimeout( () => {
     console.log('faded', window.orientation);
     faded = true;
-    if (window.orientation !== 0) {
+    if (window.orientation === undefined) {
       $('nav').addClass('show');
     }
   }, 2000)
@@ -41,7 +41,7 @@ $(document).ready( () => {
     $('nav').removeClass('sideNaveOpen');
     $('#' + num).addClass('selected');
     var dest = $("#" + id);
-    if (window.orientation === 0) {
+    if (window.orientation === undefined) {
       $('html, body').animate( {scrollTop: dest.offset().top - 90}, 400 );
     } else {
       $('html, body').animate( {scrollTop: dest.offset().top - 30}, 'slow' );
