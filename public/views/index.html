@@ -11,7 +11,10 @@
   <script src="vendors/three.min.js" charset="utf-8"></script>
   <script src="vendors/OBJLoader.js" charset="utf-8"></script>
   <!-- Scripts -->
-  <script src="app/all.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <script src="scripts/app.js" charset="utf-8"></script>
+  <script src="scripts/controllers/reposController.js" charset="utf-8"></script>
+  <script src="scripts/services/gitHubService.js" charset="utf-8"></script>
   <!-- Styles -->
   <link rel="stylesheet" href="/app/main.min.css">
   <!-- Typekit -->
@@ -29,8 +32,8 @@
   <nav>
     <ul>
       <li id="1">Home</li>
-      <li id="2">Projects</li>
-      <li id="3">Now Reading</li>
+      <li id="2">Work</li>
+      <li id="3">Play</li>
       <li id="4">Links</li>
       <a href="/resume"><li>Resume</li></a>
     </ul>
@@ -41,39 +44,29 @@
     <div class="wrapper">
       <div class="profileImage"></div>
       <div class="profileText">
-        <h1>A Full-Stack Web Developer with a background in Pastoral Ministry.</h1>
-      </div>
-      <div class="scroll">
-        <h3>Scroll</h3>
-        <img src="/assets/arrow.svg" alt="Scroll to see more">
+        <h1>The Full-Stack Web Developer with a background in Pastoral Ministry.</h1>
       </div>
     </div>
 
-    <h1 class="siteHeader" id="projects">Projects</h1>
-    <div class="repos" ng-controller="reposController" ng-init="populateRepos()">
 
-      <div class="repo" ng-repeat="repo in repos">
-        <h2>{{repo.name}}</h2>
-        <p>{{repo.description}}</p>
-        <a href="{{repo.html_url}}">>></a>
-      </div>
+    <div class="container">
+      <h1 class="siteHeader" id="projects">Work</h1>
+      <img class="mockup" src="assets/capture.png" alt="Capture App">
+      <img class="mockup" src="assets/praeco.png" alt="praeco iot">
     </div>
+
 
   </div>
   <div class="body1">
 
   </div>
   <div class="body2">
-    <h1 class="siteHeader" id="reading">Now Reading</h1>
+    <h1 class="siteHeader" id="reading">Play</h1>
     <div class="container">
-      <img src="http://stmedia.startribune.com/images/1Franken121416.JPG" alt="Al Franken - Giant of the Senate" class="bookCurrent">
-      <div class="bookDescription">
-        <h1 class="siteHeader">Giant of the Senate - Al Franken</h1>
-        <p>This book makes me proud to be a minnesotan. Hearing Al Franken talk
-          about his hard and complicated path to the Senate was both challenging and
-          inspiring. This book felt like a return to his comedic routes while still
-          affirming his respect for the position he fills. I highly recomend this book.</p>
-      </div>
+      <img src="/assets/franken1.JPG"
+      alt="Al Franken - Giant of the Senate" class="bookCurrent">
+      <img src="/assets/homecoming.jpg" alt="Homecoming Podcast by Gimlet Media">
+      <img src="/assets/Horizon.jpg" alt="Horizon Zero Dawn">
     </div>
 
   </div>

@@ -39,12 +39,10 @@ app.controller('reposController', function($scope, gitHubService) {
 $(document).ready( () => {
 
   let faded = false;
-  let scrollMemory = 0;
 
   let fadeInScroll = setTimeout( () => {
     faded = true;
-    if (window.orientation === undefined) {
-      $('.scroll').addClass('show');
+    if (window.orientation === 0) {
       $('nav').addClass('show');
     }
   }, 1500)
@@ -65,33 +63,6 @@ $(document).ready( () => {
       $('nav').removeClass('navVis');
     }
 
-    /*
-    scroll hint
-    */
-    // if current scroll is greater than memory, reset memory
-    if (bScroll > scrollMemory) {
-      scrollMemory = bScroll;
-    }
-    // if current scroll passes threshold of 1/8 the window height
-    if (bScroll > $(window).height() / 8) {
-      // if '.scroll' has faded in
-      if (faded) {
-        $('.scroll').css( 'transition-duration', '0ms' );
-        // if bScroll is  not < scrollMemory
-        if (bScroll === scrollMemory) {
-          $('.scroll').css( 'opacity', 1 - bScroll / $(window).height() );
-        } // end check if current scroll is not less than memory
-      } // end check if faded
-    } // end check if current scroll is 1/8th window
-
-    /*
-    animate repos
-    */
-    // if on mobile
-    //  if repo is within center 80% of screen
-    //  expand slightly and make margin shrink accordingly
-    // else make them apear as the user scrolls near them
-    // also hide all repos on page load if user is on desktop
 
 
 
@@ -107,8 +78,8 @@ $(document).ready( () => {
     $('nav').removeClass('sideNaveOpen');
     $('#' + num).addClass('selected');
     var dest = $("#" + id);
-    if (window.orientation === undefined) {
-      $('html, body').animate( {scrollTop: dest.offset().top - 90}, 'slow' );
+    if (window.orientation === 0) {
+      $('html, body').animate( {scrollTop: dest.offset().top - 90}, 400 );
     } else {
       $('html, body').animate( {scrollTop: dest.offset().top - 30}, 'slow' );
     }
