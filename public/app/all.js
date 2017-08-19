@@ -41,8 +41,9 @@ $(document).ready( () => {
   let faded = false;
 
   let fadeInScroll = setTimeout( () => {
+    console.log('faded');
     faded = true;
-    if (window.orientation === 0) {
+    if (window.orientation !== 0) {
       $('nav').addClass('show');
     }
   }, 2000)
