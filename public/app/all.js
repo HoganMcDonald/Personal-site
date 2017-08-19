@@ -45,7 +45,7 @@ $(document).ready( () => {
     if (window.orientation === 0) {
       $('nav').addClass('show');
     }
-  }, 1500)
+  }, 2000)
 
   $(window).on('scroll', () => {
 

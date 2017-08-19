@@ -8,8 +8,27 @@
     left: 15vw
     right: 15vw
 
-
-.container
-  .mockup
-    height: 80vh
-    margin: auto
+.body
+  .container
+    display: flex
+    align-items: center
+    justify-content: center
+    .app
+      text-align: center
+      h4
+        +headerFont(1.2em)
+      h4, p, ul, li
+        padding: 0px
+        max-width: 19vw
+        margin: auto
+        margin-top: 1vh
+      p, li
+        +bodyFont(1em)
+      li
+        list-style: none
+        // margin-left: 3vw
+        // text-align: left
+      .mockup
+        display: block
+        height: 80vh
+        margin: -5vh -5vw
